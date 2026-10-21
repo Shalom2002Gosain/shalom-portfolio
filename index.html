@@ -1,0 +1,412 @@
+<!-- from pathlib import Path
+import zipfile, textwrap
+
+base = Path("/mnt/data")
+site = base / "shalom_professional_portfolio"
+site.mkdir(exist_ok=True)
+
+html = r''' -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#080d18">
+    <meta name="description"
+        content="Shalom Gosain — B.Tech Computer Science graduate focused on Python, AI/ML, computer vision, and Generative AI. Explore projects, skills, and experience.">
+    <title>Shalom Gosain | AI/ML Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <a class="brand" href="#home" aria-label="Shalom Gosain home">
+            <span class="brand-mark">SG<span>.</span></span>
+            <span class="brand-copy">SHALOM GOSAIN<small>AI / ML ENGINEER</small></span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="siteNav">
+            <span class="menu-label">MENU</span><span class="menu-symbol" aria-hidden="true">＋</span>
+        </button>
+
+        <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+            <a class="nav-link active" href="#home">Home</a>
+            <a class="nav-link" href="#projects">Projects</a>
+            <a class="nav-link" href="#about">About</a>
+            <a class="nav-link" href="#skills">Skills</a>
+            <a class="nav-link" href="#contact">Contact</a>
+            <a class="nav-cta" href="mailto:shalomgosain2002@gmail.com">Let's talk <span>↗</span></a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero section-wrap" id="home">
+            <div class="hero-copy">
+                <p class="eyebrow"><span class="status-pulse"></span> OPEN TO AI/ML ENGINEERING OPPORTUNITIES</p>
+                <h1>Building useful<br>things with <span class="gradient-text">AI.</span></h1>
+                <p class="hero-intro">I’m <strong>Shalom Gosain</strong>,an AI/ML Engineer with a background in Computer
+                    Science. I develop Python-based applications focused on Machine Learning, Computer Vision, and
+                    Generative AI. </p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#projects">Explore my work <span>↘</span></a>
+                    <a class="button button-secondary" href="mailto:shalomgosain2002@gmail.com">Contact me
+                        <span>↗</span></a>
+                </div>
+                <div class="social-row">
+                    <a href="https://github.com/Shalom2002Gosain" target="_blank" rel="noopener noreferrer">GitHub
+                        <span>↗</span></a>
+                    <a href="https://www.linkedin.com/in/shalom-gosain/" target="_blank"
+                        rel="noopener noreferrer">LinkedIn <span>↗</span></a>
+                    <!-- <a href="https://shalom2002gosain.github.io" target="_blank" rel="noopener noreferrer">Portfolio
+                        <span>↗</span></a> -->
+                </div>
+            </div>
+
+            <div class="hero-visual" aria-label="Animated neural network illustration">
+                <div class="visual-top"><span><i></i> NEURAL NETWORK / VISUALIZATION</span><span>LIVE CANVAS</span>
+                </div>
+                <div class="canvas-stage">
+                    <canvas id="neuralCanvas" aria-hidden="true"></canvas>
+                    <div class="core-orbit" aria-hidden="true"><span></span><i></i></div>
+                    <div class="canvas-caption caption-left">INPUT<br><b>DATA</b></div>
+                    <div class="canvas-caption caption-right">OUTPUT<br><b>INSIGHT</b></div>
+                </div>
+                <div class="visual-bottom"><span>PYTHON · ML · COMPUTER VISION · GENAI</span><span
+                        class="visual-indicator">● SYSTEM ONLINE</span></div>
+            </div>
+
+            <div class="hero-meta">
+                <div><span class="meta-label">EDUCATION</span><strong>B.Tech in CSE</strong><small>Class of 2025</small>
+                </div>
+                <div><span class="meta-label">FOCUS</span><strong>Applied AI</strong><small>Models → useful
+                        products</small></div>
+                <div><span class="meta-label">BASED IN</span><strong>India</strong><small>Open to opportunities</small>
+                </div>
+                <a class="scroll-cue" href="#projects"><span class="scroll-line"></span> SCROLL TO EXPLORE</a>
+            </div>
+        </section>
+
+        <section class="section-wrap section-block" id="projects">
+            <div class="section-heading">
+                <div>
+                    <p class="section-kicker">01 / SELECTED WORK</p>
+                    <h2>Projects with<br><span class="gradient-text">a purpose.</span></h2>
+                </div>
+                <p class="section-summary">A selection of hands-on projects exploring AI/ML concepts and turning them
+                    into usable applications.</p>
+            </div>
+
+            <div class="filter-row" role="group" aria-label="Filter projects">
+                <button class="filter-button active" type="button" data-filter="all">All projects
+                    <span>06</span></button>
+                <button class="filter-button" type="button" data-filter="genai">Generative AI <span>01</span></button>
+                <button class="filter-button" type="button" data-filter="vision">Computer vision
+                    <span>01</span></button>
+                <button class="filter-button" type="button" data-filter="ml">Machine learning <span>03</span></button>
+                <button class="filter-button" type="button" data-filter="python">Python apps <span>01</span></button>
+            </div>
+
+            <div class="project-grid">
+                <article class="project-card featured reveal" data-category="vision">
+                    <div class="project-art art-vision">
+                        <div class="art-grid"></div><span class="art-label">CV / 01</span>
+                        <div class="scan-box"><span class="hand-symbol">✋</span><i class="scan-line"></i></div>
+                        <span class="art-bottom">REAL-TIME GESTURE RECOGNITION</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta"><span>COMPUTER VISION</span><span>01 / 06</span></div>
+                        <h3>Sign Language Recognition</h3>
+                        <p>A webcam-based sign recognition system using a custom CNN model, with image capture,
+                            prediction, and a desktop interface for selected signs.</p>
+                        <div class="tag-list">
+                            <span>Python</span><span>PyTorch</span><span>OpenCV</span><span>Tkinter</span></div>
+                        <a class="project-link" href="https://github.com/Shalom2002Gosain/Sign_LanguageRecognition" target="_blank"
+                            rel="noopener noreferrer">Explore on GitHub <span>↗</span></a>
+                    </div>
+                </article>
+
+                <article class="project-card reveal" data-category="ml">
+                    <div class="project-art art-resume">
+                        <div class="art-grid"></div><span class="art-label">NLP / 02</span>
+                        <div class="resume-sheet"><b>RESUME MATCH</b><i></i><i></i><i></i>
+                            <div class="score-chip"><strong>TF-IDF</strong><small>SIMILARITY</small></div>
+                        </div>
+                        <span class="art-bottom">SKILLS · KEYWORDS · MATCHING</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta"><span>NLP / MACHINE LEARNING</span><span>02 / 06</span></div>
+                        <h3>Resume Analyzer & Job Matcher</h3>
+                        <p>A Streamlit tool that extracts text from PDF resumes and compares it with job descriptions
+                            using TF-IDF and cosine similarity.</p>
+                        <div class="tag-list">
+                            <span>Python</span><span>Streamlit</span><span>PyMuPDF</span><span>Scikit-learn</span></div>
+                        <a class="project-link" href="https://github.com/Shalom2002Gosain/Resume_Analyzer" target="_blank"
+                            rel="noopener noreferrer">Explore on GitHub <span>↗</span></a>
+                    </div>
+                </article>
+
+                <article class="project-card reveal" data-category="genai">
+                    <div class="project-art art-tutor">
+                        <div class="art-grid"></div><span class="art-label">LLM / 03</span>
+                        <div class="ai-orb"><span>✳</span></div>
+                        <div class="chat-bubble bubble-one">Explain a concept</div>
+                        <div class="chat-bubble bubble-two">Let’s break it down…</div>
+                        <span class="art-bottom">CONVERSATIONAL LEARNING</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta"><span>GENERATIVE AI</span><span>03 / 06</span></div>
+                        <h3>Gemini AI Tutor</h3>
+                        <p>A conversational tutor built with Google Gemini and LangChain, with a Flask web interface and
+                            session-based conversation history.</p>
+                        <div class="tag-list">
+                            <span>Python</span><span>Gemini</span><span>LangChain</span><span>Flask</span></div>
+                        <a class="project-link" href="https://github.com/Shalom2002Gosain/Gemini-AI-Tutor-chatbot." target="_blank"
+                            rel="noopener noreferrer">Explore on GitHub <span>↗</span></a>
+                    </div>
+                </article>
+
+                <article class="project-card reveal" data-category="python">
+                    <div class="project-art art-voice">
+                        <div class="art-grid"></div><span class="art-label">AUTOMATION / 04</span>
+                        <div class="mic-orb">◖</div>
+                        <div class="sound-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                        <span class="art-bottom">VOICE COMMANDS · TASKS</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta"><span>PYTHON APPLICATION</span><span>04 / 06</span></div>
+                        <h3>Sara Voice Assistant</h3>
+                        <p>A Python voice assistant exploring speech recognition, text-to-speech, browser actions, and
+                            everyday task automation.</p>
+                        <div class="tag-list"><span>Python</span><span>Speech Recognition</span><span>pyttsx3</span>
+                        </div>
+                        <a class="project-link" href="https://github.com/Shalom2002Gosain/Sara" target="_blank"
+                            rel="noopener noreferrer">Explore on GitHub <span>↗</span></a>
+                    </div>
+                </article>
+
+                <article class="project-card reveal" data-category="ml">
+                    <div class="project-art art-house">
+                        <div class="art-grid"></div><span class="art-label">PREDICTION / 05</span>
+                        <div class="house-icon"><span>⌂</span><i></i></div>
+                        <span class="art-bottom">FEATURES → ESTIMATED VALUE</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta"><span>MACHINE LEARNING</span><span>05 / 06</span></div>
+                        <h3>House Price Prediction</h3>
+                        <p>A machine learning project exploring property features and regression-based price prediction.
+                        </p>
+                        <div class="tag-list"><span>Python</span><span>Machine Learning</span><span>Regression</span>
+                        </div>
+                        <a class="project-link" href="https://github.com/Shalom2002Gosain/House-price-pridiction" target="_blank"
+                            rel="noopener noreferrer">Explore on GitHub <span>↗</span></a>
+                    </div>
+                </article>
+
+                <article class="project-card reveal" data-category="ml">
+                    <div class="project-art art-cluster">
+                        <div class="art-grid"></div><span class="art-label">CLUSTERING / 06</span>
+                        <div class="cluster-points">
+                            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                        </div>
+                        <span class="art-bottom">PATTERNS → CUSTOMER GROUPS</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta"><span>UNSUPERVISED LEARNING</span><span>06 / 06</span></div>
+                        <h3>Customer Segmentation</h3>
+                        <p>An exploratory clustering project that groups customer records based on patterns in their
+                            data.</p>
+                        <div class="tag-list"><span>Python</span><span>K-Means</span><span>Data Analysis</span></div>
+                        <a class="project-link" href="https://github.com/Shalom2002Gosain/Coustmer-Segmentation-using-K-Means-Clustering" target="_blank"
+                            rel="noopener noreferrer">Explore on GitHub <span>↗</span></a>
+                    </div>
+                </article>
+            </div>
+            <p class="project-disclaimer">Project links currently point to my GitHub profile. Replace each with its
+                direct repository URL before publishing.</p>
+        </section>
+
+        <section class="about-section" id="about">
+            <div class="section-wrap section-block">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-kicker">02 / ABOUT ME</p>
+                        <h2>Curious by nature.<br><span class="gradient-text">Practical by design.</span></h2>
+                    </div>
+                </div>
+                <div class="about-grid">
+                    <div class="about-copy">
+                        <p class="about-lead">I’m a 2025 B.Tech graduate in Computer Science & Engineering focused on
+                            building practical AI-powered applications.</p>
+                        <p>My hands-on experience includes data preprocessing, machine learning model training and
+                            evaluation, computer vision, NLP-based matching, and integrating Large Language Models
+                            (LLMs) into applications. I enjoy turning ideas into working projects, experimenting with
+                            different approaches, and continuously improving both model performance and user experience.
+                        </p>
+                        <p>I’m seeking an entry-level AI/ML Engineer or AI Engineer opportunity where I can apply my
+                            skills, collaborate with a team, solve real-world problems, and continue growing as an
+                            engineer.</p>
+                        <div class="language-line"><span>LANGUAGES</span><strong>English · Hindi · Punjabi</strong>
+                        </div>
+                    </div>
+                    <div class="experience">
+                        <div class="experience-heading"><span>EXPERIENCE & EDUCATION</span><span>2024 — 2025</span>
+                        </div>
+                        <article class="timeline-item">
+                            <span class="timeline-date">JAN 2025 — JUN 2025</span>
+                            <h3>AI Intern</h3>
+                            <p class="timeline-place">Solitaire Infosys · Mohali</p>
+                            <p>Training and hands-on work in Python, AI/ML workflows, data preprocessing, and model
+                                training.</p>
+                        </article>
+                        <article class="timeline-item">
+                            <span class="timeline-date">SEP 2024 — OCT 2024</span>
+                            <h3>Machine Learning Intern</h3>
+                            <p class="timeline-place">Prodigy Infotech</p>
+                            <p>Worked with Python-based ML models and the preprocessing, training, and evaluation
+                                workflow.</p>
+                        </article>
+                        <article class="timeline-item">
+                            <span class="timeline-date">2021 — 2025</span>
+                            <h3>B.Tech in Computer Science & Engineering</h3>
+                            <p class="timeline-place">Shaheed Bhagat Singh State University</p>
+                            <p>Graduated in 2025 · First Division</p>
+                        </article>
+                        <div class="education-mini">
+                            <div><span>CLASS XII · 2021</span><strong>86%</strong><small>M.L.M. Sr. Sec. School</small>
+                            </div>
+                            <div><span>CLASS X · 2019</span><strong>84%</strong><small>St. Joseph’s High School</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-wrap section-block" id="skills">
+            <div class="section-heading">
+                <div>
+                    <p class="section-kicker">03 / TOOLKIT</p>
+                    <h2>Tools I use to<br><span class="gradient-text">make things work.</span></h2>
+                </div>
+                <p class="section-summary">A practical toolkit that I continue to develop through projects,
+                    experimentation, and learning.</p>
+            </div>
+            <!-- <div class="skill-grid">
+        <article class="skill-card reveal"><span class="skill-index">01</span><div class="skill-icon">Py</div><h3>Programming</h3><p>Python · Object-oriented programming · Problem solving</p></article>
+        <article class="skill-card reveal"><span class="skill-index">02</span><div class="skill-icon">ML</div><h3>Machine Learning</h3><p>Data preprocessing · Model training · Evaluation · Scikit-learn</p></article>
+        <article class="skill-card reveal"><span class="skill-index">03</span><div class="skill-icon">CV</div><h3>Computer Vision</h3><p>PyTorch · CNNs · OpenCV · Image classification</p></article>
+        <article class="skill-card reveal"><span class="skill-index">04</span><div class="skill-icon">LLM</div><h3>Generative AI</h3><p>Google Gemini · LangChain · Prompting · LLM applications</p></article>
+        <article class="skill-card reveal"><span class="skill-index">05</span><div class="skill-icon">NLP</div><h3>Text & Data</h3><p>TF-IDF · Cosine similarity · PyMuPDF · Data analysis</p></article>
+        <article class="skill-card reveal"><span class="skill-index">06</span><div class="skill-icon">API</div><h3>AI Applications</h3><p>FastAPI · Streamlit · Flask</p></article>
+        <article class="skill-card reveal"><span class="skill-index">07</span><div class="skill-icon">Git</div><h3>Tools & Workflow</h3><p>Git · GitHub · Jupyter Notebook · Virtual environments</p></article>
+        <article class="skill-card skill-card-note reveal"><span class="skill-index">08</span><div class="skill-icon">+</div><h3>Always learning</h3><p>Exploring RAG, AI agents, LLM evaluation, and reliable AI application patterns.</p></article>
+      </div> -->
+
+
+            <div class="skill-grid">
+                <article class="skill-card reveal">
+                    <span class="skill-index">01</span>
+                    <div class="skill-icon">&lt;/&gt;</div>
+                    <h3>Programming</h3>
+                    <p>Python · Object-oriented programming · Problem solving</p>
+                </article>
+
+                <article class="skill-card reveal">
+                    <span class="skill-index">02</span>
+                    <div class="skill-icon">⚙</div>
+                    <h3>Machine Learning</h3>
+                    <p>Data preprocessing · Model training · Evaluation · Scikit-learn</p>
+                </article>
+
+                <article class="skill-card reveal">
+                    <span class="skill-index">03</span>
+                    <div class="skill-icon">◉</div>
+                    <h3>Computer Vision</h3>
+                    <p>PyTorch · CNNs · OpenCV · Image classification</p>
+                </article>
+
+                <article class="skill-card reveal">
+                    <span class="skill-index">04</span>
+                    <div class="skill-icon">✳</div>
+                    <h3>Generative AI</h3>
+                    <p>Google Gemini · LangChain · Prompting · LLM applications</p>
+                </article>
+
+                <article class="skill-card reveal">
+                    <span class="skill-index">05</span>
+                    <div class="skill-icon">≡</div>
+                    <h3>Text & Data</h3>
+                    <p>TF-IDF · Cosine similarity · PyMuPDF · Data analysis</p>
+                </article>
+
+                <article class="skill-card reveal">
+                    <span class="skill-index">06</span>
+                    <div class="skill-icon">⌘</div>
+                    <h3>AI Applications</h3>
+                    <p>FastAPI · Streamlit · Flask</p>
+                </article>
+
+                <article class="skill-card reveal">
+                    <span class="skill-index">07</span>
+                    <div class="skill-icon">⚒</div>
+                    <h3>Tools & Workflow</h3>
+                    <p>Git · GitHub · Jupyter Notebook · Virtual environments</p>
+                </article>
+
+                <article class="skill-card skill-card-note reveal">
+                    <span class="skill-index">08</span>
+                    <div class="skill-icon">↗</div>
+                    <h3>Always Learning</h3>
+                    <p>Exploring RAG, AI agents, LLM evaluation, and reliable AI application patterns.</p>
+                </article>
+            </div>
+
+
+
+
+
+
+
+
+        </section>
+
+        <section class="contact-section" id="contact">
+            <div class="section-wrap contact-inner">
+                <p class="section-kicker">04 / GET IN TOUCH</p>
+                <h2>Have a problem<br>worth <span class="gradient-text">solving?</span></h2>
+                <div class="contact-bottom">
+                    <p>I’m open to entry-level AI/ML, Python, and AI application opportunities. If you’re building
+                        something interesting, let’s connect.</p>
+                    <a class="button button-primary contact-button"
+                        href="mailto:shalomgosain2002@gmail.com">shalomgosain2002@gmail.com <span>↗</span></a>
+                </div>
+                <div class="contact-socials">
+                    <a href="https://github.com/Shalom2002Gosain" target="_blank" rel="noopener noreferrer">GITHUB
+                        <span>↗</span></a>
+                    <a href="https://www.linkedin.com/in/shalom-gosain/" target="_blank"
+                        rel="noopener noreferrer">LINKEDIN <span>↗</span></a>
+                    <a href="mailto:shalomgosain2002@gmail.com">EMAIL <span>↗</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <a class="footer-logo" href="#home">SG<span>.</span></a>
+        <p>Designed & built with curiosity. <span>© <span id="year">2026</span> Shalom Gosain</span></p>
+        <a href="#home" class="back-top">BACK TO TOP ↑</a>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
